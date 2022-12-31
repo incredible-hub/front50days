@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .box {
+            position: relative;
+            height: 80vh;
+            width: 20px;
+            margin: 10px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 50px;
+            cursor: pointer;
+            color: #ffffff;
+            flex: 0.5;
+            /* 添加动画效果 
+            私有前缀-weblit- 可以保证在webkit内核的浏览器中正常运行
+            trasition四个参数 
+                - 设置all  或者height之类的单独某个属性
+                - 动画持续时间 
+                - 动画持续时间曲线
+                - 可选  延迟执行时间
+            */
+            -webkit-transition: all 700ms ease-in;
+        }
+
+        .active {
+            flex: 5;
+        }
+
+        .box h3 {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            opacity: 0;
+        }
+
+        .box.active h3 {
+            opacity: 1;
+            transition: opacity 0.3s ease-in 0.4s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box active"
+            style="background-image: url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
+            <h3>
+                bridge
+            </h3>
+        </div>
+        <div class="box"
+            style="background-image: url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
+            <h3>
+                bridge22
+            </h3>
+        </div>
+        <div class="box"
+            style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80')">
+            <h3>
+                bridge33
+            </h3>
+        </div>
+        <div class="box"
+            style="background-image: url('https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80')">
+            <h3>
+                bridge44
+            </h3>
+        </div>
+        <div class="box"
+            style="background-image: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
+            <h3>
+                bridge55
+            </h3>
+        </div>
+    </div>
+    <script>
+        const boxs = document.querySelectorAll('.box')
+        boxs.forEach(box => box.addEventListener('mouseover', () => {
+            removeActive()
+            box.classList.add('active')
+        }))
+        function removeActive() {
+            boxs.forEach(e => e.classList.remove('active'))
+        }
+    </script>
+</body>
+
+</html>
